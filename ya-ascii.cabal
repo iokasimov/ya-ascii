@@ -1,0 +1,22 @@
+name:          ya-ascii
+version:       0.1.0.0
+license-file:  LICENSE
+maintainer:    iokasimov.m@gmail.com
+author:        Murat Kasimov
+build-type:    Simple
+cabal-version: >=1.10
+
+library
+    exposed-modules: Ya.ASCII
+    default-language: Haskell2010
+    default-extensions:
+        DataKinds DeriveAnyClass ConstraintKinds EmptyCase
+        ExistentialQuantification GADTs QuantifiedConstraints InstanceSigs
+        StandaloneKindSignatures FlexibleContexts FlexibleInstances
+        KindSignatures StandaloneKindSignatures LiberalTypeSynonyms
+        LambdaCase FunctionalDependencies MultiParamTypeClasses
+        NoImplicitPrelude PackageImports PolyKinds RankNTypes ViewPatterns
+        PatternSynonyms DerivingVia StandaloneDeriving ScopedTypeVariables
+        TypeApplications TypeFamilies TypeFamilyDependencies TypeOperators
+    ghc-options: -Wall -fno-warn-missing-pattern-synonym-signatures
+    build-depends: ya
