@@ -2,15 +2,17 @@ module Ya.ASCII where
 
 import Ya
 
-type Symbol = Bracket `ML` Punctuate
+type Symbol = Unit # Bracket `ML` Unit # Punctuate
 
-pattern Bracket x = This x :: Symbol
-pattern Punctuate x = That x :: Symbol
+pattern Bracket x = This (Tagged x) :: Symbol
+pattern Punctuate x = That (Tagged x) :: Symbol
 
-type Punctuate = () `ML` () `ML` ()
- `ML` () `ML` () `ML` () `ML` () `ML` () `ML` () `ML` ()
- `ML` () `ML` () `ML` () `ML` () `ML` () `ML` () `ML` ()
- `ML` () `ML` () `ML` () `ML` () `ML` () `ML` ()
+type Punctuate = Unit `ML` Unit `ML` Unit
+ `ML` Unit `ML` Unit `ML` Unit `ML` Unit
+ `ML` Unit `ML` Unit `ML` Unit `ML` Unit
+ `ML` Unit `ML` Unit `ML` Unit `ML` Unit
+ `ML` Unit `ML` Unit `ML` Unit `ML` Unit
+ `ML` Unit `ML` Unit `ML` Unit `ML` Unit
 
 pattern Doublequote e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This e))))))))))))))))))))) :: Punctuate
 pattern Singlequote e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))))))))))) :: Punctuate
@@ -38,50 +40,50 @@ pattern Question e    = That e :: Punctuate
 
 type Bracket = Shape `ML` Shape
 
-type Shape = () `ML` () `ML` () `ML` ()
+type Shape = Unit `ML` Unit `ML` Unit `ML` Unit
 
 pattern Round, Curly, Angle, Square :: Shape
-pattern Round = This (This (This ()))
-pattern Curly = This (This (That ()))
-pattern Angle = This (That ())
-pattern Square = That ()
+pattern Round = This (This (This Unit))
+pattern Curly = This (This (That Unit))
+pattern Angle = This (That Unit)
+pattern Square = That Unit
 
 pattern Opened, Closed :: e `AR_` e `ML` e
 pattern Opened x = This x
 pattern Closed x = That x
 
-type Latin = () `ML` () `ML` () `ML` () `ML` ()
- `ML` () `ML` () `ML` () `ML` () `ML` () `ML` () `ML` ()
- `ML` () `ML` () `ML` () `ML` () `ML` () `ML` () `ML` ()
- `ML` () `ML` () `ML` () `ML` () `ML` () `ML` () `ML` ()
+type Latin = Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit
+ `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit
+ `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit
+ `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit
 
 pattern A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z :: Latin
-pattern A = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This ()))))))))))))))))))))))))
-pattern B = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That ()))))))))))))))))))))))))
-pattern C = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That ())))))))))))))))))))))))
-pattern D = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That ()))))))))))))))))))))))
-pattern E = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That ())))))))))))))))))))))
-pattern F = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That ()))))))))))))))))))))
-pattern G = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That ())))))))))))))))))))
-pattern H = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That ()))))))))))))))))))
-pattern I = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That ())))))))))))))))))
-pattern J = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That ()))))))))))))))))
-pattern K = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That ())))))))))))))))
-pattern L = This (This (This (This (This (This (This (This (This (This (This (This (This (This (That ()))))))))))))))
-pattern M = This (This (This (This (This (This (This (This (This (This (This (This (This (That ())))))))))))))
-pattern N = This (This (This (This (This (This (This (This (This (This (This (This (That ()))))))))))))
-pattern O = This (This (This (This (This (This (This (This (This (This (This (That ())))))))))))
-pattern P = This (This (This (This (This (This (This (This (This (This (That ()))))))))))
-pattern Q = This (This (This (This (This (This (This (This (This (That ())))))))))
-pattern R = This (This (This (This (This (This (This (This (That ()))))))))
-pattern S = This (This (This (This (This (This (This (That ())))))))
-pattern T = This (This (This (This (This (This (That ()))))))
-pattern U = This (This (This (This (This (That ())))))
-pattern V = This (This (This (This (That ()))))
-pattern W = This (This (This (That ())))
-pattern X = This (This (That ()))
-pattern Y = This (That ())
-pattern Z = That ()
+pattern A = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This Unit))))))))))))))))))))))))
+pattern B = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That Unit))))))))))))))))))))))))
+pattern C = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That Unit)))))))))))))))))))))))
+pattern D = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That Unit))))))))))))))))))))))
+pattern E = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That Unit)))))))))))))))))))))
+pattern F = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That Unit))))))))))))))))))))
+pattern G = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That Unit)))))))))))))))))))
+pattern H = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That Unit))))))))))))))))))
+pattern I = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That Unit)))))))))))))))))
+pattern J = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That Unit))))))))))))))))
+pattern K = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That Unit)))))))))))))))
+pattern L = This (This (This (This (This (This (This (This (This (This (This (This (This (This (That Unit))))))))))))))
+pattern M = This (This (This (This (This (This (This (This (This (This (This (This (This (That Unit)))))))))))))
+pattern N = This (This (This (This (This (This (This (This (This (This (This (This (That Unit))))))))))))
+pattern O = This (This (This (This (This (This (This (This (This (This (This (That Unit)))))))))))
+pattern P = This (This (This (This (This (This (This (This (This (This (That Unit))))))))))
+pattern Q = This (This (This (This (This (This (This (This (This (That Unit)))))))))
+pattern R = This (This (This (This (This (This (This (This (That Unit))))))))
+pattern S = This (This (This (This (This (This (This (That Unit)))))))
+pattern T = This (This (This (This (This (This (That Unit))))))
+pattern U = This (This (This (This (This (That Unit)))))
+pattern V = This (This (This (This (That Unit))))
+pattern W = This (This (This (That Unit)))
+pattern X = This (This (That Unit))
+pattern Y = This (That Unit)
+pattern Z = That Unit
 
 type Cased e = e `ML` e
 
@@ -91,7 +93,7 @@ pattern Upper x = That x
 
 type Letter = Cased Latin
 
-type Number = () `ML` () `ML` () `ML` () `ML` () `ML` () `ML` () `ML` () `ML` () `ML` ()
+type Number = Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit
 
 pattern Zero e = This (This (This (This (This (This (This (This (This e))))))))
 pattern One e = This (This (This (This (This (This (This (This (That e))))))))
@@ -104,25 +106,25 @@ pattern Seven e = This (This (That e))
 pattern Eight e = This (That e)
 pattern Nine e = That e
 
-type Caret = () `ML` () `ML` () `ML` () `ML` () `ML` ()
+type Caret = Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit
 
-pattern Backspace = This (This (This (This (This ())))) :: Caret
-pattern Tab = This (This (This (This (That ())))) :: Caret
-pattern Newline = This (This (This (That ()))) :: Caret
-pattern Escape = This (This (That ())) :: Caret
-pattern Space = This (That ()) :: Caret
-pattern Delete = That () :: Caret
+pattern Backspace = This (This (This (This (This Unit)))) :: Caret
+pattern Tab = This (This (This (This (That Unit)))) :: Caret
+pattern Newline = This (This (This (That Unit))) :: Caret
+pattern Escape = This (This (That Unit)) :: Caret
+pattern Space = This (That Unit) :: Caret
+pattern Delete = That Unit :: Caret
 
 -- Back Space ?
 -- Back Slash ?
 
-type Glyph = Letter `ML` Number `ML` Symbol
+type Glyph = Unit # Letter `ML` Unit # Number `ML` Unit # Symbol
 
-pattern Letter x = This (This x) :: Glyph
-pattern Number x = This (That x) :: Glyph
-pattern Symbol x = That x :: Glyph
+pattern Letter x = This (This (Tagged x)) :: Glyph
+pattern Number x = This (That (Tagged x)) :: Glyph
+pattern Symbol x = That (Tagged x) :: Glyph
 
-type ASCII = Glyph `ML` Caret
+type ASCII = Unit # Glyph `ML` Unit # Caret
 
-pattern Glyph e = This e :: ASCII
-pattern Caret e = That e :: ASCII
+pattern Glyph e = This (Tagged e) :: ASCII
+pattern Caret e = That (Tagged e) :: ASCII
