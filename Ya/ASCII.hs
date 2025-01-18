@@ -108,12 +108,12 @@ pattern Nine e = That e
 
 type Caret = Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit
 
-pattern Backspace = This (This (This (This (This Unit)))) :: Caret
-pattern Tab = This (This (This (This (That Unit)))) :: Caret
-pattern Newline = This (This (This (That Unit))) :: Caret
-pattern Escape = This (This (That Unit)) :: Caret
-pattern Space = This (That Unit) :: Caret
-pattern Delete = That Unit :: Caret
+pattern Backspace e = This (This (This (This (This e)))) :: Caret
+pattern Tab e = This (This (This (This (That e)))) :: Caret
+pattern Newline e = This (This (This (That e))) :: Caret
+pattern Escape e = This (This (That e)) :: Caret
+pattern Space e = This (That e) :: Caret
+pattern Delete e = That e :: Caret
 
 -- Back Space ?
 -- Back Slash ?
