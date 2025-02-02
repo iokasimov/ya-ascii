@@ -93,7 +93,7 @@ pattern Upper x = That x
 
 type Letter = Cased Latin
 
-type Number = Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit
+type Digit = Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit
 
 pattern Zero e = This (This (This (This (This (This (This (This (This e))))))))
 pattern One e = This (This (This (This (This (This (This (This (That e))))))))
@@ -118,10 +118,10 @@ pattern Delete e = That e :: Caret
 -- Back Space ?
 -- Back Slash ?
 
-type Glyph = Unit # Letter `ML` Unit # Number `ML` Unit # Symbol
+type Glyph = Unit # Letter `ML` Unit # Digit `ML` Unit # Symbol
 
 pattern Letter x = This (This (Tagged x)) :: Glyph
-pattern Number x = This (That (Tagged x)) :: Glyph
+pattern Digit x = This (That (Tagged x)) :: Glyph
 pattern Symbol x = That (Tagged x) :: Glyph
 
 type ASCII = Unit # Glyph `ML` Unit # Caret
