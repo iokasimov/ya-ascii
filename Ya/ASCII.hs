@@ -2,17 +2,17 @@ module Ya.ASCII where
 
 import Ya
 
-type Symbol = Unit # Bracket `ML` Unit # Punctuate
+type Symbol = Unit # Bracket `S` Unit # Punctuate
 
 pattern Bracket x = This (Tagged x) :: Symbol
 pattern Punctuate x = That (Tagged x) :: Symbol
 
-type Punctuate = Unit `ML` Unit `ML` Unit
- `ML` Unit `ML` Unit `ML` Unit `ML` Unit
- `ML` Unit `ML` Unit `ML` Unit `ML` Unit
- `ML` Unit `ML` Unit `ML` Unit `ML` Unit
- `ML` Unit `ML` Unit `ML` Unit `ML` Unit
- `ML` Unit `ML` Unit `ML` Unit `ML` Unit
+type Punctuate = Unit `S` Unit `S` Unit
+ `S` Unit `S` Unit `S` Unit `S` Unit
+ `S` Unit `S` Unit `S` Unit `S` Unit
+ `S` Unit `S` Unit `S` Unit `S` Unit
+ `S` Unit `S` Unit `S` Unit `S` Unit
+ `S` Unit `S` Unit `S` Unit `S` Unit
 
 pattern Doublequote e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This e))))))))))))))))))))) :: Punctuate
 pattern Singlequote e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))))))))))) :: Punctuate
@@ -38,9 +38,9 @@ pattern Colon e       = This (This (That e)) :: Punctuate
 pattern Exclam e      = This (That e) :: Punctuate
 pattern Question e    = That e :: Punctuate
 
-type Bracket = Shape `ML` Shape
+type Bracket = Shape `S` Shape
 
-type Shape = Unit `ML` Unit `ML` Unit `ML` Unit
+type Shape = Unit `S` Unit `S` Unit `S` Unit
 
 pattern Round, Curly, Angle, Square :: Shape
 pattern Round = This (This (This Unit))
@@ -48,14 +48,14 @@ pattern Curly = This (This (That Unit))
 pattern Angle = This (That Unit)
 pattern Square = That Unit
 
-pattern Opened, Closed :: e `AR_` e `ML` e
+pattern Opened, Closed :: e `AR_` e `S` e
 pattern Opened x = This x
 pattern Closed x = That x
 
-type Latin = Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit
- `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit
- `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit
- `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit
+type Latin = Unit `S` Unit `S` Unit `S` Unit `S` Unit
+ `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit
+ `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit
+ `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit
 
 pattern A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z :: Latin
 pattern A = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This Unit))))))))))))))))))))))))
@@ -85,15 +85,15 @@ pattern X = This (This (That Unit))
 pattern Y = This (That Unit)
 pattern Z = That Unit
 
-type Cased e = e `ML` e
+type Cased e = e `S` e
 
-pattern Lower, Upper :: e `AR_` e `ML` e
+pattern Lower, Upper :: e `AR_` e `S` e
 pattern Lower x = This x
 pattern Upper x = That x
 
 type Letter = Cased Latin
 
-type Digit = Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit
+type Digit = Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit
 
 pattern Zero e = This (This (This (This (This (This (This (This (This e))))))))
 pattern One e = This (This (This (This (This (This (This (This (That e))))))))
@@ -106,7 +106,7 @@ pattern Seven e = This (This (That e))
 pattern Eight e = This (That e)
 pattern Nine e = That e
 
-type Caret = Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit `ML` Unit
+type Caret = Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit
 
 pattern Backspace e = This (This (This (This (This e)))) :: Caret
 pattern Tab e = This (This (This (This (That e)))) :: Caret
@@ -118,13 +118,13 @@ pattern Delete e = That e :: Caret
 -- Back Space ?
 -- Back Slash ?
 
-type Glyph = Unit # Letter `ML` Unit # Digit `ML` Unit # Symbol
+type Glyph = Unit # Letter `S` Unit # Digit `S` Unit # Symbol
 
 pattern Letter x = This (This (Tagged x)) :: Glyph
 pattern Digit x = This (That (Tagged x)) :: Glyph
 pattern Symbol x = That (Tagged x) :: Glyph
 
-type ASCII = Unit # Glyph `ML` Unit # Caret
+type ASCII = Unit # Glyph `S` Unit # Caret
 
 pattern Glyph e = This (Tagged e) :: ASCII
 pattern Caret e = That (Tagged e) :: ASCII
