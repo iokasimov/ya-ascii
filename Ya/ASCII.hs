@@ -108,15 +108,12 @@ pattern Nine e = That e
 
 type Caret = Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit
 
-pattern Backspace e = This (This (This (This (This e)))) :: Caret
-pattern Tab e = This (This (This (This (That e)))) :: Caret
-pattern Newline e = This (This (This (That e))) :: Caret
-pattern Escape e = This (This (That e)) :: Caret
-pattern Space e = This (That e) :: Caret
-pattern Delete e = That e :: Caret
-
--- Back Space ?
--- Back Slash ?
+pattern Tab e = This (This (This (This (This e))))
+pattern Newline e = This (This (This (This (That e))))
+pattern Escape e = This (This (This (That e)))
+-- Back `ha` Space = This (This (That e))
+pattern Space e = This (That e)
+pattern Delete e = That e
 
 type Glyph = Unit # Letter `S` Unit # Digit `S` Unit # Symbol
 
