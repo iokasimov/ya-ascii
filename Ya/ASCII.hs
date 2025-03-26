@@ -7,36 +7,35 @@ type Symbol = Unit # Bracket `S` Unit # Punctuate
 pattern Bracket x = This (Tagged x) :: Symbol
 pattern Punctuate x = That (Tagged x) :: Symbol
 
-type Punctuate = Unit `S` Unit `S` Unit
- `S` Unit `S` Unit `S` Unit `S` Unit
- `S` Unit `S` Unit `S` Unit `S` Unit
- `S` Unit `S` Unit `S` Unit `S` Unit
- `S` Unit `S` Unit `S` Unit `S` Unit
- `S` Unit `S` Unit `S` Unit `S` Unit
+type Punctuate = Unit `S` Unit `S` Unit `S` Unit `S` Unit
+ `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit
+ `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit
+ `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit
 
-pattern Doublequote e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This e))))))))))))))))))))) :: Punctuate
-pattern Singlequote e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))))))))))) :: Punctuate
-pattern Hash e        = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))))))))))) :: Punctuate
-pattern Hyphen e      = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))))))))) :: Punctuate
-pattern At e          = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))))))))) :: Punctuate
-pattern Circumflex e       = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))))))) :: Punctuate
-pattern Underscore e  = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))))))) :: Punctuate
-pattern Grave e       = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))))) :: Punctuate
-pattern Bar e         = This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))))) :: Punctuate
-pattern Tilde e       = This (This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))) :: Punctuate
-pattern Plus e        = This (This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))) :: Punctuate
-pattern Asterisk e    = This (This (This (This (This (This (This (This (This (This (This (That e))))))))))) :: Punctuate
-pattern Percent e     = This (This (This (This (This (This (This (This (This (This (That e)))))))))) :: Punctuate
-pattern Ampersand e   = This (This (This (This (This (This (This (This (This (That e))))))))) :: Punctuate
-pattern Dollar e      = This (This (This (This (This (This (This (This (That e)))))))) :: Punctuate
---  (Back `ha` Slash) = This (This (This (This (This (This (This (That e))))))) :: Punctuate
-pattern Slash e       = This (This (This (This (This (This (That e)))))) -- :: Punctuate
-pattern Period e      = This (This (This (This (This (That e))))) :: Punctuate
-pattern Comma e       = This (This (This (This (That e)))) :: Punctuate
-pattern Semicolon e   = This (This (This (That e))) :: Punctuate
-pattern Colon e       = This (This (That e)) :: Punctuate
-pattern Exclam e      = This (That e) :: Punctuate
-pattern Question e    = That e :: Punctuate
+pattern Doublequote e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This e))))))))))))))))))))))
+pattern Singlequote e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))))))))))))
+pattern Hash e        = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))))))))))))
+pattern Hyphen e      = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))))))))))
+pattern At e          = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))))))))))
+pattern Circumflex e  = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))))))))
+pattern Underscore e  = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))))))))
+pattern Grave e       = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))))))
+pattern Bar e         = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))))))
+pattern Tilde e       = This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))))
+pattern Plus e        = This (This (This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))))
+pattern Asterisk e    = This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))
+pattern Percent e     = This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))
+pattern Ampersand e   = This (This (This (This (This (This (This (This (This (This (That e))))))))))
+pattern Dollar e      = This (This (This (This (This (This (This (This (This (That e)))))))))
+--  (Back `ha` Slash)   = This (This (This (This (This (This (This (This (That e))))))))
+pattern Slash e       = This (This (This (This (This (This (This (That e)))))))
+pattern Period e      = This (This (This (This (This (This (That e))))))
+pattern Comma e       = This (This (This (This (This (That e)))))
+pattern Semicolon e   = This (This (This (This (That e))))
+pattern Colon e       = This (This (This (That e)))
+pattern Exclam e      = This (This (That e))
+pattern Question e    = This (That e)
+pattern Space e       = That e
 
 type Bracket = Shape `S` Shape
 
@@ -106,13 +105,12 @@ pattern Seven e = This (This (That e))
 pattern Eight e = This (That e)
 pattern Nine e = That e
 
-type Caret = Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit
+type Caret = Unit `S` Unit `S` Unit `S` Unit `S` Unit
 
-pattern Tab e = This (This (This (This (This e))))
-pattern Newline e = This (This (This (This (That e))))
-pattern Escape e = This (This (This (That e)))
--- Back `ha` Space = This (This (That e))
-pattern Space e = This (That e)
+pattern Tab e = This (This (This (This e)))
+pattern Newline e = This (This (This (That e)))
+pattern Escape e = This (This (That e))
+-- Back `ha` Space = This (That e)
 pattern Delete e = That e
 
 type Glyph = Unit # Letter `S` Unit # Digit `S` Unit # Symbol
