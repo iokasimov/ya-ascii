@@ -10,11 +10,12 @@ pattern Punctuate x = That (Tagged x) :: Symbol
 type Punctuate = Unit `S` Unit `S` Unit `S` Unit `S` Unit
  `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit
  `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit
- `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit
+ `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit
 
-pattern Doublequote e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This e))))))))))))))))))))))
-pattern Singlequote e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))))))))))))
-pattern Hash e        = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))))))))))))
+pattern Doublequote e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This e)))))))))))))))))))))))
+pattern Singlequote e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))))))))))))))
+pattern Hash e        = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))))))))))))
+pattern Equality e      = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))))))))))))
 pattern Hyphen e      = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))))))))))
 pattern At e          = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))))))))))
 pattern Circumflex e  = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))))))))
