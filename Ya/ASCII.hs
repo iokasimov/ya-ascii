@@ -4,8 +4,8 @@ import Ya
 
 type Symbol = (Unit # Bracket) `S` (Unit # Punctuate)
 
-pattern Bracket x = This (Tagged x) :: Symbol
-pattern Punctuate x = That (Tagged x) :: Symbol
+pattern Bracket x = This (Tag x) :: Symbol
+pattern Punctuate x = That (Tag x) :: Symbol
 
 type Punctuate = Unit `S` Unit `S` Unit `S` Unit `S` Unit
  `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit
@@ -116,11 +116,11 @@ pattern Delete e = That e
 
 type Glyph = (Unit # Letter) `S` (Unit # Digit) `S` (Unit # Symbol)
 
-pattern Letter x = This (This (Tagged x)) :: Glyph
-pattern Digit x = This (That (Tagged x)) :: Glyph
-pattern Symbol x = That (Tagged x) :: Glyph
+pattern Letter x = This (This (Tag x)) :: Glyph
+pattern Digit x = This (That (Tag x)) :: Glyph
+pattern Symbol x = That (Tag x) :: Glyph
 
 type ASCII = (Unit # Glyph) `S` (Unit # Caret)
 
-pattern Glyph e = This (Tagged e) :: ASCII
-pattern Caret e = That (Tagged e) :: ASCII
+pattern Glyph e = This (Tag e) :: ASCII
+pattern Caret e = That (Tag e) :: ASCII
