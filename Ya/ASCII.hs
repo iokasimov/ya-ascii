@@ -1,11 +1,10 @@
 module Ya.ASCII where
-
 import Ya
 
-type Symbol = (Unit # Bracket) `S` (Unit # Punctuate)
+type Symbol = Bracket `S` Punctuate
 
-pattern Bracket x = This (Tag x) :: Symbol
-pattern Punctuate x = That (Tag x) :: Symbol
+pattern Bracket x = This x :: Symbol
+pattern Punctuate x = That x :: Symbol
 
 type Punctuate = Unit `S` Unit `S` Unit `S` Unit `S` Unit
  `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit
@@ -114,13 +113,13 @@ pattern Escape e = This (This (That e))
 -- Back `ha` Space = This (That e)
 pattern Delete e = That e
 
-type Glyph = (Unit # Letter) `S` (Unit # Digit) `S` (Unit # Symbol)
+type Glyph = Letter `S` Digit `S` Symbol
 
-pattern Letter x = This (This (Tag x)) :: Glyph
-pattern Digit x = This (That (Tag x)) :: Glyph
-pattern Symbol x = That (Tag x) :: Glyph
+pattern Letter x = This (This x) :: Glyph
+pattern Digit x = This (That x) :: Glyph
+pattern Symbol x = That x :: Glyph
 
-type ASCII = (Unit # Glyph) `S` (Unit # Caret)
+type ASCII = Glyph `S` Caret
 
-pattern Glyph e = This (Tag e) :: ASCII
-pattern Caret e = That (Tag e) :: ASCII
+pattern Glyph e = This e :: ASCII
+pattern Caret e = That e :: ASCII
