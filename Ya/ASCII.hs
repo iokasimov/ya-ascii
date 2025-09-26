@@ -57,32 +57,32 @@ type Latin = Unit `S` Unit `S` Unit `S` Unit `S` Unit
  `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit
 
 -- pattern A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z :: Latin
-pattern A e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This e))))))))))))))))))))))))
-pattern B e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))))))))))))))
-pattern C e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))))))))))))))
-pattern D e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))))))))))))
-pattern E e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))))))))))))
-pattern F e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))))))))))
-pattern G e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))))))))))
-pattern H e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))))))))
-pattern I e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))))))))
-pattern J e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))))))
-pattern K e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))))))
-pattern L e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))))
-pattern M e = This (This (This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))))
-pattern N e = This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))
-pattern O e = This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))
-pattern P e = This (This (This (This (This (This (This (This (This (This (That e))))))))))
-pattern Q e = This (This (This (This (This (This (This (This (This (That e)))))))))
-pattern R e = This (This (This (This (This (This (This (This (That e))))))))
-pattern S e = This (This (This (This (This (This (This (That e)))))))
-pattern T e = This (This (This (This (This (This (That e))))))
-pattern U e = This (This (This (This (This (That e)))))
-pattern V e = This (This (This (This (That e))))
-pattern W e = This (This (This (That e)))
-pattern X e = This (This (That e))
-pattern Y e = This (That e)
-pattern Z e = That e
+pattern A e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This e)))))))))))))))))))))))) :: Latin
+pattern B e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))))))))))))))) :: Latin
+pattern C e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))))))))))))) :: Latin
+pattern D e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))))))))))))) :: Latin
+pattern E e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))))))))))) :: Latin
+pattern F e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))))))))))) :: Latin
+pattern G e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))))))))) :: Latin
+pattern H e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))))))))) :: Latin
+pattern I e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))))))) :: Latin
+pattern J e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))))))) :: Latin
+pattern K e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))))) :: Latin
+pattern L e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))))) :: Latin
+pattern M e = This (This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))) :: Latin
+pattern N e = This (This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))) :: Latin
+pattern O e = This (This (This (This (This (This (This (This (This (This (This (That e))))))))))) :: Latin
+pattern P e = This (This (This (This (This (This (This (This (This (This (That e)))))))))) :: Latin
+pattern Q e = This (This (This (This (This (This (This (This (This (That e))))))))) :: Latin
+pattern R e = This (This (This (This (This (This (This (This (That e)))))))) :: Latin
+pattern S e = This (This (This (This (This (This (This (That e))))))) :: Latin
+pattern T e = This (This (This (This (This (This (That e)))))) :: Latin
+pattern U e = This (This (This (This (This (That e))))) :: Latin
+pattern V e = This (This (This (This (That e)))) :: Latin
+pattern W e = This (This (This (That e))) :: Latin
+pattern X e = This (This (That e)) :: Latin
+pattern Y e = This (That e) :: Latin
+pattern Z e = That e :: Latin
 
 type Cased e = e `S` e
 
@@ -94,16 +94,16 @@ type Letter = Cased Latin
 
 type Digit = Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit
 
-pattern Zero e = This (This (This (This (This (This (This (This (This e))))))))
-pattern One e = This (This (This (This (This (This (This (This (That e))))))))
-pattern Two e = This (This (This (This (This (This (This (That e)))))))
-pattern Three e = This (This (This (This (This (This (That e))))))
-pattern Four e = This (This (This (This (This (That e)))))
-pattern Five e = This (This (This (This (That e))))
-pattern Six e = This (This (This (That e)))
-pattern Seven e = This (This (That e))
-pattern Eight e = This (That e)
-pattern Nine e = That e
+pattern Zero e = This (This (This (This (This (This (This (This (This e)))))))) :: Digit
+pattern One e = This (This (This (This (This (This (This (This (That e)))))))) :: Digit
+pattern Two e = This (This (This (This (This (This (This (That e))))))) :: Digit
+pattern Three e = This (This (This (This (This (This (That e)))))) :: Digit
+pattern Four e = This (This (This (This (This (That e))))) :: Digit
+pattern Five e = This (This (This (This (That e)))) :: Digit
+pattern Six e = This (This (This (That e))) :: Digit
+pattern Seven e = This (This (That e)) :: Digit
+pattern Eight e = This (That e) :: Digit
+pattern Nine e = That e :: Digit
 
 type Caret = Unit `S` Unit `S` Unit `S` Unit `S` Unit
 
