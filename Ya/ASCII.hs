@@ -14,7 +14,7 @@ type Punctuate = Unit `S` Unit `S` Unit `S` Unit `S` Unit
 pattern Doublequote e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This e)))))))))))))))))))))))
 pattern Singlequote e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))))))))))))))
 pattern Hash e        = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))))))))))))
-pattern Equality e      = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))))))))))))
+pattern Equality e    = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))))))))))))
 pattern Hyphen e      = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))))))))))
 pattern At e          = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))))))))))
 pattern Circumflex e  = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))))))))
@@ -41,11 +41,10 @@ type Bracket = Shape `S` Shape
 
 type Shape = Unit `S` Unit `S` Unit `S` Unit
 
-pattern Round, Curly, Angle, Square :: Shape
-pattern Round = This (This (This Unit))
-pattern Curly = This (This (That Unit))
-pattern Angle = This (That Unit)
-pattern Square = That Unit
+pattern Round x = This (This (This x)) :: Shape
+pattern Curly x = This (This (That x)) :: Shape
+pattern Angle x = This (That x) :: Shape
+pattern Square x = That x :: Shape
 
 pattern Opened, Closed :: e `AR_` e `S` e
 pattern Opened x = This x
