@@ -1,4 +1,5 @@
 module Ya.ASCII where
+
 import Ya
 
 type Symbol = Bracket `S` Punctuate
@@ -11,10 +12,15 @@ type Punctuate = Unit `S` Unit `S` Unit `S` Unit `S` Unit
  `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit
  `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit `S` Unit
 
+pattern Doublequote, Singlequote, Hash, Equal, Hyphen, At, Circumflex, Underscore, Grave, Tilde, Plus, Asterisk, Percent, Ampersand, Dollar, Period, Comma, Semicolon, Colon, Exclamation, Question :: Unit `AR` Punctuate
+
+pattern Slash :: Unit `AR` i `S` Unit `S` ii `S` iii `S` iiii `S` iiiii `S` iiiiii `S` iiiiiii `S` iiiiiiii
+pattern Space :: Unit `AR` i `S` Unit
+
 pattern Doublequote e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This e)))))))))))))))))))))))
 pattern Singlequote e = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))))))))))))))
 pattern Hash e        = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))))))))))))
-pattern Equality e    = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))))))))))))
+pattern Equal e    = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))))))))))))
 pattern Hyphen e      = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))))))))))
 pattern At e          = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e)))))))))))))))))))
 pattern Circumflex e  = This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (This (That e))))))))))))))))))
@@ -33,7 +39,7 @@ pattern Period e      = This (This (This (This (This (This (That e))))))
 pattern Comma e       = This (This (This (This (This (That e)))))
 pattern Semicolon e   = This (This (This (This (That e))))
 pattern Colon e       = This (This (This (That e)))
-pattern Exclam e      = This (This (That e))
+pattern Exclamation e      = This (This (That e))
 pattern Question e    = This (That e)
 pattern Space e       = That e
 
@@ -85,7 +91,7 @@ pattern Z e = That e :: Latin
 
 type Cased e = e `S` e
 
-pattern Lower, Upper :: e `AR_` e `S` e
+pattern Lower, Upper :: Latin `AR_` Cased Latin
 pattern Lower x = This x
 pattern Upper x = That x
 
@@ -106,6 +112,8 @@ pattern Nine e = That e :: Digit
 
 type Caret = Unit `S` Unit `S` Unit `S` Unit `S` Unit
 
+pattern Tab, Newline, Escape, Delete :: Unit `AR` Caret
+
 pattern Tab e = This (This (This (This e)))
 pattern Newline e = This (This (This (That e)))
 pattern Escape e = This (This (That e))
@@ -120,5 +128,8 @@ pattern Symbol x = That x :: Glyph
 
 type ASCII = Glyph `S` Caret
 
-pattern Glyph e = This e :: ASCII
-pattern Caret e = That e :: ASCII
+pattern Glyph :: Glyph `AR` ASCII
+pattern Glyph e = This e
+
+pattern Caret :: Caret `AR` ASCII
+pattern Caret e = That e
